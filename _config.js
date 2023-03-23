@@ -2,6 +2,7 @@ require('dotenv').config();
 var config = {}
 
 // Update to have your correct username and password
+//test configs
 //UAT
 config.mongoURI = {
     production: `mongodb+srv://${process.env.username}:${process.env.password}@nodeepressproject.lhdzplz.mongodb.net/darkroom?retryWrites=true&w=majority`,
