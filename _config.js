@@ -9,5 +9,6 @@ config.mongoURI = {
     test: 'mongodb+srv://${process.env.username}:${process.env.password}@devops1.qwsflap.mongodb.net/darkroom?retryWrites=true&w=majority',
 
 }
+
 module.exports = config;
 
