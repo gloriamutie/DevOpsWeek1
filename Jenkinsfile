@@ -36,5 +36,13 @@ pipeline{
             }
         }
     }
+     post {
+
+        success{
+           slackSend channel: '#jenkins-channel',  color: '#c0c0c0', message: "Repo: ${env.JOB_NAME} - BuildNo: ${env.BUILD_NUMBER} - live site: ${env.Live_Site}"
+        }
+    
+
+}
 
 }
