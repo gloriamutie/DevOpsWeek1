@@ -6,12 +6,14 @@ const path = require('path');
 // Define routes
 let index = require('./routes/index');
 let image = require('./routes/image');
+let mongoUrl = require('./_config');
 
-// connecting the database
-let mongodb_url = 'mongodb+srv://Gloria:Airolg@gallery.iq1mgvs.mongodb.net/?retryWrites=true&w=majority';
 
-let dbName = 'darkroom';
-mongoose.connect(`${mongodb_url}${dbName}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
+// // connecting the database
+// let mongodb_url = 'mongodb+srv://Gloria:Airolg@gallery.iq1mgvs.mongodb.net/darkroom?retryWrites=true&w=majority';
+
+// let dbName = 'darkroom';
+mongoose.connect(`${mongoUrl.mongoURI.development}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
     if (err) console.log(err)
 });
 
@@ -39,9 +41,10 @@ app.use('/', index);
 app.use('/image', image);
 
 
-
  
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
 });
+
+module.exports = app;
